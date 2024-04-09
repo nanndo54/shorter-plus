@@ -1,0 +1,79 @@
+.base {
+  position: relative;
+
+  width: 40rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  background-color: var(--background-alt-color);
+  /* box-shadow: 0 -0.2rem 0.2rem 0.1rem #ffffff25,
+    0 0.5rem 1rem 0.2rem var(--background-color); */
+}
+
+.base input {
+  position: relative;
+
+  width: 100%;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+
+  color: var(--foreground-color);
+  background-color: var(--background-alt-color);
+  border: 0.05rem solid #ffffffaa;
+}
+
+.base input:focus {
+  outline: none;
+}
+
+.base input::placeholder {
+  color: #ffffff25;
+  user-select: none;
+}
+
+.blink {
+  background-color: var(--foreground-color);
+
+  position: absolute;
+  top: 1.95rem;
+  left: 1.85rem;
+
+  width: 0.05rem;
+  height: 1.1rem;
+
+  animation: blink 1.1s ease-in-out infinite;
+}
+
+.base input:not(:placeholder-shown) + .blink,
+.base input:focus + .blink {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.startButtons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

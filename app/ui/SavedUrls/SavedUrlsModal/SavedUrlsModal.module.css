@@ -1,0 +1,14 @@
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description p {
+  color: var(--foreground-alt-color);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.25rem;
+}

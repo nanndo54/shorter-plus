@@ -1,0 +1,36 @@
+.base {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  background-color: transparent;
+  color: var(--foreground-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  height: 2rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.3rem;
+  border: 0.05rem solid #ffffff25;
+
+  transition: border-color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.base:hover {
+  border-color: #ffffff95;
+}
+
+.base svg {
+  width: 0.875rem;
+  aspect-ratio: 1;
+  fill: var(--foreground-color);
+}
+
+.base.transparent {
+  border-color: transparent;
+}
+
+.base.transparent:hover {
+  border-color: #ffffff25;
+}

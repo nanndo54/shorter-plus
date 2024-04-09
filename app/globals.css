@@ -1,0 +1,50 @@
+html {
+  font-size: 16px;
+  overflow: hidden;
+}
+
+body {
+  --foreground-color: white;
+  --foreground-alt-color: #8a8c93;
+
+  --background-color: #131416;
+  --background-alt-color: #1a1a1eef;
+
+  font-family: var(--font-inter);
+  color: var(--foreground-color);
+  background: var(--background-color);
+
+  width: 100vw;
+  overflow: hidden;
+}
+
+li {
+  padding-block: 0.25rem;
+}
+
+li:not(:first-child) {
+  border-top: 0.0625rem solid var(--foreground-alt-color);
+}
+
+.shadow {
+  position: relative;
+
+  overflow: visible;
+}
+
+.shadow::before {
+  content: '';
+  display: block;
+
+  position: absolute;
+  top: -0.0625rem;
+  left: -0.125rem;
+  height: calc(100% + 0.15rem);
+  width: calc(100% + 0.15rem);
+
+  background: linear-gradient(to top left, #ffffff2a 65%, #ffffff5a);
+  box-shadow: 0 0rem 2rem 0.75rem #ffffff12;
+  border-radius: inherit;
+
+  z-index: -1;
+}
