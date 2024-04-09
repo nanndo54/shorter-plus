@@ -7,6 +7,7 @@ import Modal from '@/app/ui/Modal/Modal'
 
 import CopyIcon from '@/app/assets/copy.svg?react'
 import TrashIcon from '@/app/assets/trash.svg?react'
+import Url from '@/types/Url'
 
 export default function SavedUrlsModal() {
   const { modal, setModal } = useAppStore((state) => state.savedUrlsModal)
@@ -16,14 +17,14 @@ export default function SavedUrlsModal() {
     setModal({ isOpen: false })
   }
 
-  const savedUrls: URL[] = [
+  const savedUrls: Url[] = [
     {
-      source: 'Facebook.com',
-      shortened: 'nanndo54.dev/s/facebook'
+      url: 'Facebook.com',
+      slug: 'nanndo54.dev/s/facebook'
     },
     {
-      source: 'Twitter.com',
-      shortened: 'nanndo54.dev/s/twitter'
+      url: 'Twitter.com',
+      slug: 'nanndo54.dev/s/twitter'
     }
   ]
 
@@ -35,13 +36,13 @@ export default function SavedUrlsModal() {
       title="Your saved URLs"
     >
       <ul className={styles.list}>
-        {savedUrls.map((url, index) => (
+        {savedUrls.map((savedUrl, index) => (
           <li key={index}>
             <div className={styles.description}>
-              <h3 href={url.shortened} target="_blank" rel="noreferrer">
-                {url.shortened}
-              </h3>
-              <p>{url.source}</p>
+              <a href={savedUrl.slug} target="_blank" rel="noreferrer">
+                {savedUrl.slug}
+              </a>
+              <p>{savedUrl.url}</p>
             </div>
             <div className={styles.buttons}>
               <Button pressHint="Saved URL copied" position="bottom">

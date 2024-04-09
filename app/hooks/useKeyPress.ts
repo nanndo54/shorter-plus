@@ -15,8 +15,6 @@ function useKeyPress({
   ctrl = false,
   alt = false
 }: Props) {
-  onKeyPress ??= () => {}
-
   const handlePress = useCallback(
     ({ key, ctrlKey, altKey }: KeyboardEvent) => {
       if (ctrl && !ctrlKey) return
@@ -25,7 +23,7 @@ function useKeyPress({
         return
       console.log('🚀 | targetKey:', targetKey, /^.$/.test(key))
 
-      onKeyPress(key)
+      if (onKeyPress) onKeyPress(key)
     },
     [targetKey, onKeyPress, ctrl, alt]
   )

@@ -3,10 +3,20 @@
 import styles from './Hint.module.css'
 
 import clsx from 'clsx/lite'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 const CLICK_TIMEOUT = 1200
 const CLICK_HINT_TIMEOUT = 1500
+
+interface Props {
+  position?: string
+  label: string
+  clickLabel?: string
+  showAlways?: boolean
+  hideOnClick?: boolean
+  showOnClick?: boolean
+  children: ReactNode
+}
 
 export default function Hint({
   position = 'top',
@@ -16,7 +26,7 @@ export default function Hint({
   hideOnClick = false,
   showOnClick = false,
   children
-}) {
+}: Props) {
   const [hint, setHint] = useState(label)
   const [clicked, setClicked] = useState(false)
 

@@ -1,7 +1,7 @@
 type Url = {
   url: string
   slug: string
-  isCustom: boolean
+  isCustom?: boolean
 }
 
 export default Url

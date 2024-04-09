@@ -11,18 +11,18 @@ import useKeyPress from '@/app/hooks/useKeyPress'
 import Hint from '@/app/ui/Hint/Hint'
 
 export default function TextBox() {
-  const [input, setInput] = useState('')
-  const [error, setError] = useState()
+  const [input, setInput] = useState<string>('')
+  const [error, setError] = useState<string>('')
 
   const handlePasteContent = () => {
     navigator.clipboard.readText().then((text) => setInput(text))
   }
 
-  const handleRaiseError = (error) => {
+  const handleRaiseError = (error: string) => {
     setError(error)
 
     setTimeout(() => {
-      setError(undefined)
+      setError('')
     }, 3000)
   }
 

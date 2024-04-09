@@ -5,6 +5,15 @@ import styles from './Modal.module.css'
 
 import CloseIcon from '@/app/assets/close.svg?react'
 import useKeyPress from '@/app/hooks/useKeyPress'
+import { ReactNode } from 'react'
+
+interface Props {
+  className?: string
+  isOpen: boolean
+  handleClose: () => void
+  title?: string
+  children: ReactNode
+}
 
 export default function Modal({
   className,
@@ -12,7 +21,7 @@ export default function Modal({
   handleClose,
   title,
   children
-}) {
+}: Props) {
   useKeyPress({
     targetKey: 'Escape',
     onKeyPress: handleClose,

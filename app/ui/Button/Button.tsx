@@ -10,7 +10,7 @@ interface Props {
   className?: string
   transparent?: boolean
   href?: string
-  onClick: () => void
+  onClick?: () => void
   children: ReactNode
   pressHint?: string
   position?: string
@@ -27,16 +27,22 @@ export default function Button({
 }: Props) {
   const props = {
     className: clsx(className, styles.base, transparent && styles.transparent),
-    type: href ? undefined : 'button',
-    href,
-    onClick: href ? undefined : onClick,
     children
   }
 
-  const childrenElement = href ? <Link {...props} /> : <button {...props} />
+  const childrenElement = href ? (
+    <Link href={href as string} {...props} />
+  ) : (
+    <button type="button" onClick={onClick} {...props} />
+  )
 
   return pressHint ? (
-    <Hint showOnClick clickLabel={pressHint} position={position}>
+    <Hint
+      showOnClick
+      label={pressHint}
+      clickLabel={pressHint}
+      position={position}
+    >
       {childrenElement}
     </Hint>
   ) : (

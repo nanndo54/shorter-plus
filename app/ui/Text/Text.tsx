@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import styles from './Text.module.css'
 
 interface Props {
-  as?: React.ComponentType<any>
+  as?: React.ComponentType<any> | string
   alt?: boolean
   serif?: boolean
   children: React.ReactNode

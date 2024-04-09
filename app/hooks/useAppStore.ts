@@ -1,22 +1,24 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
 
-export const useAppStore = create(
-  persist(
-    (set) => ({
-      savedUrlsModal: {
-        modal: {},
-        setModal: (modal) =>
-          set((state) => ({
-            savedUrlsModal: { ...state.savedUrlsModal, modal }
-          }))
-      }
-    }),
-    {
-      name: 'shorter-plus-store',
-      partialize: ({ theme }) => ({
-        theme
-      })
-    }
-  )
-)
+interface SavedUrlsModal {
+  modal: {
+    isOpen: boolean
+  }
+  setModal: (modal: { isOpen: boolean }) => void
+}
+
+interface State {
+  savedUrlsModal: SavedUrlsModal
+}
+
+export const useAppStore = create<State>((set) => ({
+  savedUrlsModal: {
+    modal: {
+      isOpen: false
+    },
+    setModal: (modal) =>
+      set((state) => ({
+        savedUrlsModal: { ...state.savedUrlsModal, modal }
+      }))
+  }
+}))
